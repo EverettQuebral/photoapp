@@ -1,0 +1,9 @@
+extend layout
+block content
+	#galleria
+		each photo in photolist
+			img(src="http://farm#{photo.farm}.staticflickr.com/#{photo.server}/#{photo.id}_#{photo.secret}_b.jpg")
+
+	script.
+		Galleria.loadTheme('/javascripts/galleria/themes/classic/galleria.classic.min.js');
+		Galleria.run('#galleria');

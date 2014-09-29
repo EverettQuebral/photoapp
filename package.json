@@ -1,28 +1,24 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.1.2",
-  "description": "A sample Node.js app using Express 4",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
+  "name": "ug2013",
+  "version": "0.0.1-26",
+  "author": {
+    "name": "Everett Quebral",
+    "email": "everett.quebral@gmail.com"
   },
+  "description": "An example application that uses the API Explorer",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "analyze": false,
+  "subdomain": "ug2013",
   "dependencies": {
     "express": "3.3.5",
-    "less-middleware" : "*",
-    "ejs" : "*",
-    "jade" : "*"
+    "ejs": "*",
+    "less-middleware": "*",
+    "jade": "*"
   },
   "engines": {
     "node": "0.10.x"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
-  },
-  "keywords": [
-    "node",
-    "heroku",
-    "express"
-  ],
-  "license": "MIT"
+  }
 }
