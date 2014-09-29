@@ -1,0 +1,31 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #222;
+  color: #fff;
+}
+header {
+  text-align: center;
+}
+footer {
+  text-align: center;
+}
+navigation {
+  text-align: center;
+}
+#galleria {
+  width: 1024px;
+  height: 600px;
+  background: #000;
+  margin: 20px auto;
+}
+ul,
+li {
+  list-style-type: none;
+}
+li {
+  display: inline-block;
+  padding: 10px 5px;
+}
+a {
+  color: white;
+}

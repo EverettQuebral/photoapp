@@ -7,10 +7,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "3.3.5",
-    "less-middleware" : "*",
-    "ejs" : "*",
-    "jade" : "*"
+    "express": "~4.9.x"
   },
   "engines": {
     "node": "0.10.x"
