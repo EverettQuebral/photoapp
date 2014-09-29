@@ -1,7 +1,0 @@
-extend layout
-block content
-	.photos
-		each photo in photolist
-			article.photo 
-				a(href="/ug/photo/#{photo.farm}/#{photo.server}/#{photo.id}/#{photo.secret}")
-					img(src="http://farm#{photo.farm}.staticflickr.com/#{photo.server}/#{photo.id}_#{photo.secret}_m.jpg", height="240")
