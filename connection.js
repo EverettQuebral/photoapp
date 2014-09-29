@@ -5,7 +5,7 @@
 var Connection = function(){
 	"use strict";
 
-	var http = require('http'),
+	var https = require('https'),
 		options = {
 			hostname : 'api.flickr.com',
 			method : 'GET',
@@ -38,7 +38,7 @@ var Connection = function(){
 			console.log("OPTIONS" ,options);
 
 
-			request = http.request(options, function(result){
+			request = https.request(options, function(result){
 				result.setEncoding('utf8');
 				result.on('data', function(d){
 					jsonOut += d;
@@ -68,7 +68,7 @@ var Connection = function(){
 						}
 						catch (e){
 							console.log(e);
-							res.send('Sorry, the server encountered an error.  Please try again later');
+							res.send('Sorry, the server encountered an error.  Please try again later ' + e);
 						}
 						
 					}
