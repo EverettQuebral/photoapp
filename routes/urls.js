@@ -20,13 +20,12 @@ photo = function(req, res){
 
 
 
-exports = module.exports = function(app){
-	//app.get('/', index);
-	//app.get('/ug/photos/:photosetid', photos);
-	//app.get('/ug/photos', photos);
-	app.get('/ug/photos/:photosetid', photospage);
-	app.get('/ug/photos/:photosetid/:page', photospage);
-	app.get('/ug/photo/:farm/:server/:id/:secret', photo);
+exports = module.exports = function(app, router){
+	router.get('/:photosetid', photospage);
+	router.get('/:photosetid/:page', photospage);
+	router.get('/:farm/:server/:id/:secret', photo);
+
+	app.use('/photos', router);
 
 	//(href="/photo/#{photo.farm}/#{photo.server}/#{photo.id}/#{photo.secret}")
 }

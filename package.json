@@ -13,10 +13,19 @@
   "analyze": false,
   "subdomain": "ug2013",
   "dependencies": {
-    "express": "3.3.5",
+    "express": "*",
     "ejs": "*",
     "jade": "*",
-    "request" : "*"
+    "request" : "*",
+    "body-parser" : "*",
+    "serve-favicon" : "*",
+    "method-override" : "*",
+    "errorhandler" : "*",
+    "cookie-parser" : "*",
+    "express-session" : "*",
+    "cookie-session" : "*",
+    "morgan" : "*",
+    "serve-static" : "*"
   },
   "engines": {
     "node": "0.10.x"
