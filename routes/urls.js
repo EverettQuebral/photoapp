@@ -22,11 +22,11 @@ albums = function(req, res){
 }
 
 
-exports = module.exports = function(app, router){
+module.exports = function(app, router){
+	router.get('/', albums);
 	router.get('/:photosetid', photospage);
 	router.get('/:photosetid/:page', photospage);
 	router.get('/:farm/:server/:id/:secret', photo);
-	router.get('/', albums);
-
+	
 	app.use('/photos', router);
 }

@@ -7,6 +7,7 @@ var express = require('express');
 var urls = require('./routes/urls');
 var http = require('http');
 var path = require('path');
+var cool = require('cool-ascii-faces');
 
 var app = express();
 

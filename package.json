@@ -13,7 +13,6 @@
   "analyze": false,
   "subdomain": "ug2013",
   "dependencies": {
-    "express": "*",
     "ejs": "*",
     "jade": "*",
     "request" : "*",
@@ -25,7 +24,9 @@
     "express-session" : "*",
     "cookie-session" : "*",
     "morgan" : "*",
-    "serve-static" : "*"
+    "serve-static" : "*",
+    "express": "~4.9.x",
+    "cool-ascii-faces": "~1.3.x"
   },
   "engines": {
     "node": "0.10.x"
