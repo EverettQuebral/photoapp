@@ -112,4 +112,4 @@ var Connection = function(){
 	}
 }();
 
-module.exports = Connection;
+exports = module.exports = Connection;

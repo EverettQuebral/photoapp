@@ -22,7 +22,7 @@ albums = function(req, res){
 }
 
 
-module.exports = function(app, router){
+exports = module.exports = function(app, router){
 	router.get('/:photosetid', photospage);
 	router.get('/:photosetid/:page', photospage);
 	router.get('/:farm/:server/:id/:secret', photo);
