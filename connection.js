@@ -7,20 +7,23 @@ var Connection = function(){
 
 	var hostname = "api.flickr.com";
 	var basepath = "/services/rest?api_key=" + process.env.API_KEY + "&user_id=" + process.env.USER_ID + "&format=json";
-	var headers = {
-		"Content-Type" : "application/json"
-	};
 	var request = require('request');
-	var jsonOut = "";
 
-	// var options = {
-	// 		hostname : 'api.flickr.com',
-	// 		method : 'GET',
-	// 		path : '/services/rest?api_key=' + process.env.API_KEY + '&user_id=' + process.env.USER_ID + '&format=json',
-	// 		headers : {
-	// 			'Content-Type' : 'application/json'
-	// 		}
-	// 	};
+	function getPages(total){
+		var pages = [];
+		var i = 1;
+		for (i = 0; i <= (total / 100); ++i){
+			pages.push(i + 1);
+		}
+
+		if (pages.length > 1){
+			pages = pages;
+		}
+		else {
+			pages = undefined;
+		}
+		return pages;
+	};
 
 	return {
 		getPhotos : function(req, res){
@@ -48,22 +51,9 @@ var Connection = function(){
 
 				if (data.stat === 'fail') return res.json(data);
 
-				var pages = [];
-				var i = 1;
-				for (i = 0; i <= (data.photoset.total / 100); ++i){
-					pages.push(i + 1);
-				}
-
-				if (pages.length > 1){
-					pages = pages;
-				}
-				else {
-					pages = undefined;
-				}
-
 				res.render('photos', {
 					photolist : data.photoset.photo, 
-					pages : pages, 
+					pages : getPages(data.photoset.total), 
 					host: req.get('host'), 
 					photosetId : req.param('photosetid'), 
 					currentpage : req.param('page'),
@@ -88,22 +78,9 @@ var Connection = function(){
 				var data = JSON.parse(body);
 				if (data.stat === 'fail') return res.json(data);
 
-				var pages = [];
-				var i = 1;
-				for (i = 0; i <= (data.photosets.total / 100); ++i){
-					pages.push(i + 1);
-				}
-
-				if (pages.length > 1){
-					pages = pages;
-				}
-				else {
-					pages = undefined;
-				}
-
 				res.render('albums', { 
 					albums : data.photosets.photoset,
-					pages : pages,
+					pages : getPages(data.photosets.total),
 					currentPage : req.param('page') || 1,
 					title : "Everett's Albums"
 				});

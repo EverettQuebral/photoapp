@@ -5,7 +5,7 @@
     "name": "Everett Quebral",
     "email": "everett.quebral@gmail.com"
   },
-  "description": "An example application that uses the API Explorer",
+  "description": "A very simple app written in nodejs to show my public photos in flickr",
   "private": true,
   "scripts": {
     "start": "node app.js"
