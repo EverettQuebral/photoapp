@@ -10,6 +10,8 @@ var Connection = function(){
 	var headers = {
 		"Content-Type" : "application/json"
 	};
+	var request = require('request');
+	var jsonOut = "";
 
 	// var options = {
 	// 		hostname : 'api.flickr.com',
@@ -24,7 +26,7 @@ var Connection = function(){
 		getPhotos : function(req, res){
 			var method = '&method=flickr.photosets.getPhotos',
 				callback = '&nojsoncallback=1',
-				page = '&page=' +  req.param('page'),
+				page = '&page=' +  req.param('page') || 1,
 				perPage = '&per_page=100',
 				photosetId = '&photoset_id=' + req.param('photosetid');
 
@@ -37,13 +39,10 @@ var Connection = function(){
 
 			console.log("path ", path);
 
-			var request = require('request'),
-				jsonOut = "";
-
 			request('https://' + hostname + path, function(error, response, body){
 
 				if (error) return res.json(error);
-				console.log(body);
+				// console.log(body);
 
 				var data = JSON.parse(body);
 
@@ -55,10 +54,62 @@ var Connection = function(){
 					pages.push(i + 1);
 				}
 
-				res.render('photos', {photolist : data.photoset.photo, pages : pages, host: req.get('host'), photosetId : req.param('photosetid'), currentpage : req.param('page')});
+				if (pages.length > 1){
+					pages = pages;
+				}
+				else {
+					pages = undefined;
+				}
+
+				res.render('photos', {
+					photolist : data.photoset.photo, 
+					pages : pages, 
+					host: req.get('host'), 
+					photosetId : req.param('photosetid'), 
+					currentpage : req.param('page'),
+					title : "Everett's Photoset - " + data.photoset.title
+				});
+			});
+		},
+
+		getAlbums : function(req, res){
+			var method = "&method=flickr.photosets.getList",
+				callback = '&nojsoncallback=1',
+				page = "&page=" + req.param(page) || 1,
+				perPage = "&per_page=100";
+
+			path = path + method + callback + page + perPage;
+
+			console.log("path ", path);
+
+			request('https://' + hostname + path, function(error, response, body){
+				if (error) return res.json(error);
+
+				var data = JSON.parse(body);
+				if (data.stat === 'fail') return res.json(data);
+
+				var pages = [];
+				var i = 1;
+				for (i = 0; i <= (data.photosets.total / 100); ++i){
+					pages.push(i + 1);
+				}
+
+				if (pages.length > 1){
+					pages = pages;
+				}
+				else {
+					pages = undefined;
+				}
+
+				res.render('albums', { 
+					albums : data.photosets.photoset,
+					pages : pages,
+					currentPage : req.param('page') || 1,
+					title : "Everett's Albums"
+				});
 			});
 		}
 	}
 }();
 
-exports = module.exports = Connection;
+module.exports = Connection;

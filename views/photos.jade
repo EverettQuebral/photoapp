@@ -2,7 +2,12 @@ extend layout
 block content
 	#galleria
 		each photo in photolist
-			img(src="http://farm#{photo.farm}.staticflickr.com/#{photo.server}/#{photo.id}_#{photo.secret}_b.jpg")
+			a(href="http://farm#{photo.farm}.staticflickr.com/#{photo.server}/#{photo.id}_#{photo.secret}_o.jpg")
+			img(src="http://farm#{photo.farm}.staticflickr.com/#{photo.server}/#{photo.id}_#{photo.secret}_b.jpg"
+				data-title="#{photo.title}")
+
+	.backtoalbums
+		a(href="/photos") Back to Albums
 
 	script.
 		Galleria.loadTheme('/javascripts/galleria/themes/classic/galleria.classic.min.js');

@@ -4,51 +4,25 @@ html
 		title #{title}
 		link(rel='stylesheet', href='/stylesheets/style.css')
 		script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
-		script(src='/javascripts/galleria/galleria-1.2.9.min.js')
+		script(src='/javascripts/galleria/galleria-1.4.2.min.js')
 	body
 		header
-			h1 Photo Gallery
+			h1 #{title}
 
 		.container
 			.main
 				block content
 
 		navigation
-			ul
-				each val in pages
-					li
-						a(href='http://#{host}/ug/photos/#{photosetId}/#{val}') [  #{val}  ]
-			ul
-				li 
-					a(href='/ug/photos/72157635269168236') Venue & Staff
-				li 
-					a(href='/ug/photos/72157635261916615') The Parade
-				li
-					a(href='/ug/photos/72157635269370108') Opening Ceremony
-				li 
-					a(href='/ug/photos/72157635262132539') The Games
-			
-			ul
-				li
-					a(href='/ug/photos/72157635249703784') Set 1/7
-				li 
-					a(href='/ug/photos/72157635243144221') Set 2/7
-				li 
-					a(href='/ug/photos/72157635251777486') Set 3/7
-				li 
-					a(href='/ug/photos/72157635245737413') Set 4/7
-				li
-					a(href='/ug/photos/72157635246392095') Set 5/7
-				li
-					a(href='/ug/photos/72157635197666106') Set 6/7
-				//li
-				//	a(href='/ug/photos/72157635191108193') Set 7/
-				li
-					a(href='/ug/photos/72157635197374458') Set 7/7
+			if pages
+				ul
+					each val in pages
+						li
+							a(href='http://#{host}/photos/#{photosetId}/#{val}') [  #{val}  ]
 
 		footer
-			p Author 
-				a(href='Everett.Quebral@gmail.com') San Jose Photographers
+			p Copyright © 
+				a(href='Everett.Quebral@gmail.com') Everett P. Quebral
 
 
 		script.

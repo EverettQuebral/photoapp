@@ -1,0 +1,7 @@
+extend layout
+block content
+	#albums
+		each album in albums
+			a(href="/photos/#{album.id}")
+				img(src="http://farm#{album.farm}.staticflickr.com/#{album.server}/#{album.primary}_#{album.secret}_t.jpg") 
+				.title #{album.title._content}

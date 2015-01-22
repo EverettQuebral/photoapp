@@ -10,22 +10,23 @@ photospage = function(req, res){
 
 photo = function(req, res){
 	res.render('photo', {
-			farm 	: req.param('farm'), 
-			server 	: req.param('server'), 
-			id 		: req.param('id'),
-			secret 	: req.param('secret')
+			farm 	: req.params('farm'), 
+			server 	: req.params('server'), 
+			id 		: req.params('id'),
+			secret 	: req.params('secret')
 		});
 };
 
+albums = function(req, res){
+	connection.getAlbums(req, res);
+}
 
 
-
-exports = module.exports = function(app, router){
+module.exports = function(app, router){
 	router.get('/:photosetid', photospage);
 	router.get('/:photosetid/:page', photospage);
 	router.get('/:farm/:server/:id/:secret', photo);
+	router.get('/', albums);
 
 	app.use('/photos', router);
-
-	//(href="/photo/#{photo.farm}/#{photo.server}/#{photo.id}/#{photo.secret}")
 }
