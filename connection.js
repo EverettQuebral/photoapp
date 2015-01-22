@@ -6,7 +6,7 @@ var Connection = function(){
 	"use strict";
 
 	var hostname = "api.flickr.com";
-	var path = "/services/rest?api_key=" + process.env.API_KEY + "&user_id=" + process.env.USER_ID + "&format=json";
+	var basepath = "/services/rest?api_key=" + process.env.API_KEY + "&user_id=" + process.env.USER_ID + "&format=json";
 	var headers = {
 		"Content-Type" : "application/json"
 	};
@@ -35,7 +35,7 @@ var Connection = function(){
 			console.log("Getting results");
 			// options.path = options.path + method + callback + photosetId + page + perPage;
 
-			path = path + method + callback + photosetId + page + perPage;
+			var path = basepath + method + callback + photosetId + page + perPage;
 
 			console.log("path ", path);
 
@@ -78,7 +78,7 @@ var Connection = function(){
 				page = "&page=" + req.param(page) || 1,
 				perPage = "&per_page=100";
 
-			path = path + method + callback + page + perPage;
+			var path = basepath + method + callback + page + perPage;
 
 			console.log("path ", path);
 
