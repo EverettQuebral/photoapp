@@ -1,3 +1,4 @@
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -22,6 +23,17 @@ time, mark, audio, video {
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
   display: block;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  background-color : #ddd;
 }
 body {
   line-height: 1;
@@ -104,13 +116,16 @@ a {
 
 #albums a {
   float : left;
-  padding : 20px;
+  padding : 10px 10px 20px;
   height : 150px;
-  width : 150px;
-  margin : 30px;
+  /* width : 150px; */
+  margin : 15px;
   -moz-box-shadow: 0 1px 3px rgba(0,0,0,.2);
   -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.2);
   box-shadow: 0 1px 3px rgba(0,0,0,.2);
+  background-color:white;
+  border-radius: 10px;
+  width: intrinsic;
 }
 
 #albums img {
@@ -119,8 +134,21 @@ a {
   text-align : center;
   margin : auto auto;
   border : 1px solid black;
+  border-radius: 10px;
+}
+
+#albums img:hover {
+  -webkit-transform: rotate(-5deg);
+     -moz-transform: rotate(-5deg);
+       -o-transform: rotate(-5deg);
+      -ms-transform: rotate(-5deg);
+          transform: rotate(-5deg);
 }
 
 #albums .title {
   text-align: center;
+}
+
+a, a:visited {
+  text-decoration: none;
 }
