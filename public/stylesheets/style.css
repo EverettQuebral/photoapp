@@ -115,25 +115,24 @@ a {
 }
 
 #albums a {
-  float : left;
-  padding : 10px 10px 20px;
-  height : 150px;
-  /* width : 150px; */
+  display : inline-block;
+  padding : 25px 25px 25px;
+  /* height : 170px; */
+  width : 150px;
   margin : 15px;
   -moz-box-shadow: 0 1px 3px rgba(0,0,0,.2);
   -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.2);
   box-shadow: 0 1px 3px rgba(0,0,0,.2);
   background-color:white;
   border-radius: 10px;
-  width: intrinsic;
+  height : intrinsic;
 }
 
 #albums img {
-  padding : 10px;
   display : block;
   text-align : center;
   margin : auto auto;
-  border : 1px solid black;
+  /* border : 1px solid black; */
   border-radius: 10px;
 }
 
