@@ -13,20 +13,21 @@
   "analyze": false,
   "subdomain": "ug2013",
   "dependencies": {
+    "body-parser": "*",
+    "cookie-parser": "*",
+    "cookie-session": "*",
+    "cool-ascii-faces": "~1.3.x",
     "ejs": "*",
-    "jade": "*",
-    "request" : "*",
-    "body-parser" : "*",
-    "serve-favicon" : "*",
-    "method-override" : "*",
-    "errorhandler" : "*",
-    "cookie-parser" : "*",
-    "express-session" : "*",
-    "cookie-session" : "*",
-    "morgan" : "*",
-    "serve-static" : "*",
+    "errorhandler": "*",
     "express": "~4.9.x",
-    "cool-ascii-faces": "~1.3.x"
+    "express-session": "*",
+    "jade": "*",
+    "method-override": "*",
+    "morgan": "*",
+    "newrelic": "^1.19.2",
+    "request": "*",
+    "serve-favicon": "*",
+    "serve-static": "*"
   },
   "engines": {
     "node": "0.10.x"
