@@ -5,6 +5,8 @@
 
 var express = require('express');
 var urls = require('./routes/urls');
+var address = require('./routes/address');
+var experiment = require('./routes/experiment');
 var http = require('http');
 var path = require('path');
 var cool = require('cool-ascii-faces');
@@ -39,8 +41,11 @@ if ('development' == app.get('env')) {
   app.use(errorHandler());
 }
 
-
+// address(app, router);
+experiment(app, router);
 urls(app, router);
+
+
 
 
 http.createServer(app).listen(app.get('port'), function(){

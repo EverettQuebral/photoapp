@@ -5,6 +5,7 @@
 
 var express = require('express');
 var urls = require('./routes/urls');
+var maps = require('./routes/maps');
 var http = require('http');
 var path = require('path');
 //var connection = require('./connection.js');
@@ -32,6 +33,10 @@ if ('development' == app.get('env')) {
 
 
 urls(app);
+maps(app);
+
+
+
 
 //connection.getPhotos(1,10);
 
