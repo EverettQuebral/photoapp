@@ -25,6 +25,7 @@
     "jade": "*",
     "method-override": "*",
     "morgan": "*",
+    "newrelic": "^1.19.2",
     "request": "*",
     "serve-favicon": "*",
     "serve-static": "*"
