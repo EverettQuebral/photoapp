@@ -8,6 +8,7 @@ var urls = require('./routes/urls');
 var http = require('http');
 var path = require('path');
 var cool = require('cool-ascii-faces');
+var idealTest = require('./routes/test');
 
 var app = express();
 
@@ -39,7 +40,9 @@ if ('development' == app.get('env')) {
   app.use(errorHandler());
 }
 
+idealTest(app, router);
 urls(app, router);
+
 
 
 
